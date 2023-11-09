@@ -1,0 +1,36 @@
+
+
+.service_item {
+    order: 5;
+    float: inline-start;
+    inline-size: 20%;
+    block-size: 15rem;
+    margin: 1rem;
+    padding: 1rem;
+    border: 1px solid #faa835;
+    border-radius: 0.5rem;
+    box-shadow: 0 0 10px 0 rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.service_img img {
+    inline-size: 100%;
+    block-size: 100%;
+    object-fit: cover;
+    border-radius: 0.5rem;
+}
+
+.service_item h5{
+    font-size: 1.5rem;
+    font-weight: 600;
+    color: #faa835;
+    margin: 0.5rem 0;
+}
+
+.service_item p {
+    font-size: 1rem;
+    font-weight: 400;
+    color: #faa835;
+    margin: 0.5rem 0;
+}
+

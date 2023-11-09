@@ -1,0 +1,138 @@
+[
+   {
+        "id": 1,
+        "title": "Mzuzu to Blantyre",
+        "city": "blantyre",
+        "distance": "100km",
+        "price": 35000,
+        "maxGroupSize": 10,
+        "desc": "This is a trip to blantyre",
+        "reviews": [],
+        "avgRating": 4.5,
+        "photo": "/trip-images/trip-img01.jpg",
+        "rating": 4.5,
+        "featured": true
+    },
+    {
+        "id": 2,
+        "title": "Blantyre to Lilongwe",
+        "city": "Lilongwe",
+        "distance": "100km",
+        "price": 30000,
+        "maxGroupSize": 10,
+        "desc": "This is a trip to Lilongwe",
+        "reviews": [
+            {
+                "name": "John Doe",
+                "rating": 4.5
+            }
+        ],
+        "avgRating": 4.5,
+        "photo": "/trip-images/trip-img02.jpg",
+        "rating": 4.5,
+        "featured": true
+        
+    },
+    {
+        "id": 3,
+        "title": "Lilongwe to Mzuzu",
+        "city": "Mzuzu",
+        "distance": "100km",
+        "price": 20000,
+        "maxGroupSize": 10,
+        "desc": "This is a trip to Mzuzu",
+        "reviews": [
+            {   
+                "name": "John Doe",
+                "rating": 4.5
+            }
+        ],
+        "avgRating": 4.5,
+        "photo": "/trip-images/trip-img03.jpg",
+        "rating": 4.5,
+        "featured": true
+        
+    },
+    {
+        "id": 4,
+        "title": "Lilongwe to Zomba",
+        "city": "Zomba",
+        "distance": "100km",
+        "price": 15000,
+        "maxGroupSize": 10,
+        "desc": "This is a trip to Zomba",
+        "reviews": [],
+        "avgRating": 4.5,
+        "photo": "/trip-images/trip-img04.jpg",
+        "rating": 4.5,
+        "featured": true
+        
+    },
+    {
+        "id": 5,
+        "title": "Mzuzu to Karonga",
+        "city": "Karonga",
+        "distance": "100km",
+        "price": 10000,
+        "maxGroupSize": 10,
+        "desc": "This is a trip to Karonga",
+        "reviews": [
+            {
+                "name": "John Doe",
+                "rating": 4.5
+            }
+        ],
+        "avgRating": 4.5,
+        "photo": "/trip-images/trip-img05.jpg",
+        "rating": 4.5,
+        "featured": true
+    },
+    {
+        "id": 6,
+        "title": "Blantyre to Johannesburg, South Africa",
+        "city": "blantyre",
+        "distance": "100km",
+        "price": 150000,
+        "maxGroupSize": 10,
+        "desc": "This is a trip to Johannesburg",
+        "reviews": [],
+        "avgRating": 4.5,
+        "photo": "/trip-images/trip-img06.jpg",
+        "rating": 4.5,
+        "featured": false
+    },
+    {
+        "id": 7,
+        "title": "Lilongwe to Dar es Salaam, Tanzania",
+        "city": "Dar es Salaam",
+        "distance": "100km",
+        "price": 100000,
+        "maxGroupSize": 10,
+        "desc": "This is a trip to Dar es Salaam",
+        "reviews": [],
+        "avgRating": 4.5,
+        "photo": "/trip-images/trip-img07.jpg",
+        "rating": 4.5,
+        "featured": true
+    },
+    {
+        "id": 8,
+        "title": "Lilongwe to Lusaka, Zambia",
+        "city": "Lusaka",
+        "distance": "100km",
+        "price": 80000,
+        "maxGroupSize": 10,
+        "desc": "This is a trip to Lusaka",
+        "reviews": [
+            {
+                "name": "John Doe",
+                "rating": 4.5
+            }
+        ],
+        "avgRating": 4.5,
+        "photo": "/trip-images/trip-img08.jpg",
+        "rating": 4.5,
+        "featured": false
+    }
+
+]

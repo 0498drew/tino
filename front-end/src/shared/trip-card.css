@@ -1,0 +1,110 @@
+
+.trip_img {
+    inline-size: 50%;
+    border-radius: 5px 5px 0 0;
+    object-fit: cover;
+}
+
+.trip_card {
+    display: flex;
+    flex-direction: column;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.card {
+    border: none !important;
+    border-radius: 1px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+}
+
+.trip_img {
+    position: relative;
+}
+
+.trip_img span {
+    position: absolute;
+    inset-block-end: 0;
+    inset-inline-start: 0;
+    z-index: 9;
+    background-color: #faa835;
+    color: #fff;
+    padding: 0.3rem 0.5rem;
+    border-radius: 3px 0 0 0;
+}
+
+.card-body {
+    padding: 0rem;
+}
+
+.card_top span i{
+    color: #faa835;
+}
+
+.trip_rating {
+    font-size: 0.7rem;
+    color: var(--text-color);
+}
+
+.trip_location {
+    color: var(--heading-color);
+    font-weight: 600;
+}
+
+.trip_title {
+    color: var(--heading-color);
+    font-weight: 700;
+    font-size: .8rem;
+    margin-top: 0.3rem;
+    cursor: pointer;
+}
+
+.trip_title a {
+    text-decoration: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.trip_title a:hover {
+    color: var(--primary-color);
+}
+
+
+.trip_rating i,
+.trip_location i {
+    font-size: 0.8rem;
+}
+
+.card_bottom h5 {
+    font-weight: 700;
+    font-size: 0.9rem;
+    color: #faa835;
+}
+
+.card_bottom h5 span {
+    font-weight: 500;
+    font-size: 0.8rem;
+    color: black;
+}
+
+.booking_btn {
+    background: #faa835;
+    padding: 0.2rem 0.5rem !important;
+    border-radius: 5px;
+    font-size: 0.8rem;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.booking_btn:hover {
+    background-color: #f9a11b;
+}
+
+.booking_btn a {
+    color: #fff;
+    text-decoration: none;
+    font-size: 0.8rem;
+}
+
+

@@ -1,0 +1,103 @@
+
+.hero_subtitle img {
+    inline-size: 1.3rem;
+    block-size: 1.3rem;
+}
+
+ 
+.hero_content h2 {
+    font-size: 1.2rem;
+    font-weight: 500;
+    margin-block-start: 0.8rem;
+    margin-block-end: 0.7rem;
+    color: var(--heading-color);
+}
+
+.hero_content h1, .highlight {
+    color: #faa835;
+}
+
+.hero_content p {
+    font-size: 0.9rem;
+    line-height: 2rem;
+    color: var(--text-color);
+}
+
+.hero_img-box img {
+    inline-size: 50%;
+    display: inline;
+    border-radius: 16px;
+    border: 1px solid var(--secondary-color);
+    object-fit: cover;
+}
+.hero_content {
+    padding-block-start: 1.5rem;
+}
+
+.hero_img-box {
+    padding-block-start: 1rem;
+}
+
+.service_title {
+    font-size: 1.1rem;
+    font-weight: 300;
+}
+
+
+.featured_trip-title {
+    font-size: 1.3rem;
+    font-weight: 500;
+}
+
+.experience_content {
+    font-size: 1.5rem;
+    margin-block-start: 1rem;
+    font-size: 500;
+}
+
+.experience_content p {
+    font-size: 1rem;
+    line-height: 2rem;
+    color: var(--text-color);
+    margin-block-start: 1rem;
+}
+
+.counter_wrapper {
+    margin-block-start: 1.5rem;
+}
+
+.counter_wrapper span {
+    inline-size: 50px;
+    block-size: 50px;
+    margin: auto;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 1.2rem;
+    font-weight: 600;
+    background-color: #faa835;
+    color: #fff;
+    border-radius: 10px 5px 10px 5px;
+}
+
+.counter_wrapper h6 {
+    font-size: 0.8rem;
+    font-weight: 600;
+    margin-block-start: 0.5rem;
+    color: var(--text-color);
+}
+
+.experience_img img {
+    border-radius: 16px;
+    border: 1px solid var(--secondary-color);
+}
+
+.experience_img {
+    display: flex !important;
+}
+
+.testimonial_title {
+    font-size: 1.5rem;
+    margin-block-start: 1rem;
+    font-size: 500;
+}

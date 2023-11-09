@@ -1,0 +1,14 @@
+.section_subtitle {
+  font-size: 1.2rem;
+  color: #fff;
+  inline-size: 5rem;
+  font-family: blackadder itc;   
+  border-radius: 10px 5px 10px 5px;
+  font-weight: 200;
+  padding: 0.1rem 0.2rem !important;
+  border-radius: px;
+  background-color: #faa835;
+  font-weight: 600;
+  margin-block-start: 1rem;
+
+}

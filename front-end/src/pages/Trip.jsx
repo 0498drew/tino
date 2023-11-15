@@ -3,25 +3,32 @@ import CommonSection from "../shared/CommonSection";
 
 
 import "../styles/trip.css"
-import tripData from '../assets/data/trips'
 import TripCard from "./../shared/TripCard"
 import SearchBar from "./../shared/SearchBar"
 import Newsletter from "./../shared/Newsletter"
 import { Container, Row, Col } from "reactstrap";
 
+import userFetch from '../hooks/userFetch';
+import { BASE_URL } from "../utils/config";
+
 
 const Trip = () => {
 
-    const [pageCount, setPageCount] = useState(0)
-    const [page, setPage] = useState(0)
+    const [pageCount, setPageCount] = useState(0);
+    const [page, setPage] = useState(0);
+
+    const {data:trips,
+         loading, 
+         error,
+         } = userFetch('${BASE_URL}/trips?page=${page}');
+    const {data:tripsCount} = userFetch('${BASE_URL}/trips/search/getTripCount');
+
 
     useEffect(()=> {
-
-
-        const pages = Math.ceil(5 / 4)
-        setPageCount(pages) 
-
-    },[page])
+        const pages = Math.ceil(tripsCount / 8)
+        setPageCount(pages);
+        window.scroll(0,0)
+    },[page, tripsCount, trips]);
 
 
 
@@ -35,14 +42,20 @@ const Trip = () => {
                     </Row>
                 </Container>
             </section>
-            <section>
+            <section className="pt-0">
                 <Container>
-                    <Row>
-                        {tripData?.map(trip=> ( 
-                            <Col lg="4" className="mb-4" key={trip.id}>
+                    {
+                        loading && <h4 className="text-center pt-5">Loading.....</h4>
+                    }
+                    {
+                        error && <h4 className="text-center pt-5">{error}</h4>
+                    }
+                    {!loading && !error && <Row>
+                        {trips?.map(trip=> ( 
+                            <Col lg="4" md='6' sm='6' className="mb-4" key={trip._id}>
                                 <TripCard trip={trip} />
                             </Col>
-                        ))}
+                        ))};
 
                         <Col lg="12">
                             <div className="pagination d-flex align-items-center justify-content-between mt-4 gap-3">
@@ -57,6 +70,7 @@ const Trip = () => {
                             </div>
                         </Col>
                     </Row>
+                    }  
                 </Container>
             </section>
             <Newsletter />

@@ -4,9 +4,8 @@ import { Link } from "react-router-dom";
 import calculateAvgRating from "../utils/avgRating";
 
 import './trip-card.css';
-
 const TripCard = ({ trip }) => {
-    const { id, title, city, photo, price, featured, reviews } = trip;
+    const { _id, title, city, photo, price, featured, reviews } = trip;
 
     const {totalRating, avgRating} = calculateAvgRating(reviews);
 
@@ -31,7 +30,7 @@ const TripCard = ({ trip }) => {
                         </span>
                     </div>
                     <h5 className="trip_title">
-                        <Link to={`/trip/${id}`}>{title}</Link>
+                        <Link to={`/trip/${_id}`}>{title}</Link>
                     </h5>
 
                     <div className="card_bottom d-flex align-items-center 
@@ -40,7 +39,7 @@ const TripCard = ({ trip }) => {
                             Mwk{price} <span>/per person</span>
                         </h5>
                         <button className="booking_btn">
-                            <Link to={`/trip/${id}`}>Book Now</Link>
+                            <Link to={`/trip/${_id}`}>Book Now</Link>
                         </button>
                     </div>
                 </CardBody>

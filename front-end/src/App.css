@@ -35,4 +35,27 @@
   to {
     transform: rotate(360deg);
   }
+
+}
+
+@media only screen and (max-width: 992px) {
+  .primary_btn a,
+  .secondary_btn a {
+    font-size: 0.9rem;
+  }
+
+  .primary__btn, .secondary_btn, .btn-dark{
+    padding: 0.2rem 1.1rem !important;
+  }
+
+  section {
+    paddling: 40px 0;
+  }
+
+}
+
+@media only screen and (max-width:768px){
+  .section_subtitle{
+    font-size: 1.3rem;
+  }
 }

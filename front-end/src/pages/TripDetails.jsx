@@ -1,21 +1,24 @@
-import React, {useRef, useState} from "react";
+import React, {useEffect, useRef, useState, useContext} from "react";
 import '../styles/trip-details.css'
 import { Container, Row, Col, Form, ListGroup } from "reactstrap";
 import { useParams } from "react-router-dom";
-import tripData from '../assets/data/trips'
 import calculateAvgRating from "../utils/avgRating";
 import avatar from "../assets/images/avatar.png"
-import Booking from "../componets/Booking/Booking"; 
+import Booking from "../components/Booking/Booking"; 
 import Newsletter from "../shared/Newsletter"
+import userFetch from './../hooks/userFetch';
+import { BASE_URL } from './../utils/config';
+import { AuthContext } from './../context/AuthContext';
 
 
 const TripDetails = () => {
     const {id} = useParams();
     const reviewMsgRef = useRef('')
     const [tripRating, setTripRating]= useState(null)
+    const {user} = useContext(AuthContext);
 
-    // This is static data later we will call our API and load our data from database
-    const trip = tripData.find(trip=> trip.id === id);
+    // Fetch data from database
+    const {data:trip, loading, error} = userFetch('${BASE_URL}/trips/${id}');
 
 
     // destructure properties from trip object
@@ -37,18 +40,59 @@ const TripDetails = () => {
     const options = { day: "numeric", month: "long", year: "numeric"};
 
     // submit request to the server
-    const submitHandler = e=>{
+    const submitHandler = async e=>{
         e.preventDefault()
         const reviewText = reviewMsgRef.current.value;
 
-        // later will call API
-    }
+        
+        try {
+
+            if(!user || user===undefined || user===null){
+            alert('Please sign in')
+        }
+
+        const reviewObj = {
+            username:user?.username,
+            reviewText,
+            rating:tripRating
+        }
+
+            const res = await fetch('${BASE_URL}/review/${id}', {
+                method:'post',
+                headers:{
+                    'content-type':'application/json'
+                },
+                credentials:'include',
+                body:JSON.stringify(reviewObj),
+            });
+
+            const result = await res.json();
+            if(!res.ok) {alert(result.massage);
+            }
+            alert(result.massage)
+        } catch (er) {
+            alert(err.massage);
+
+        }
+    };
+
+    useInsertionEffect(()=>{
+        window.scrollTo(0,0)
+    },[trip]);
 
     return ( <> 
 
     <section>
         <Container>
-            <Row>
+            {
+                loading && <h4 className="text-center pt-5">Loading.....</h4>
+            }
+            {
+                error && <h4 className="text-center pt-5">{error}</h4>
+            }
+            {
+                !loading && !error && (
+                <Row>
                 <Col lg="8">
                     <div className="trip_content">
                         <img src={photo} alt="" />
@@ -131,19 +175,20 @@ const TripDetails = () => {
                                             <div className="w-100">
                                                 <div className="d-flex align-items-center justify-content-around">
                                                     <div>
-                                                        <h5>drew</h5>
+                                                        <h5>{review.username}</h5>
                                                         <p>
-                                                            {new Date("01-21-2023").toLocateDateString(
+                                                            {new Date(review.createAt).toLocateDateString(
                                                                 "en-US",
                                                                  options
                                                             )}
                                                         </p>
                                                     </div>
                                                     <span className="d-flex align-items-center">
+                                                        {review.rating}
                                                         <i class="ri-star-s-fill"></i>
                                                     </span>
                                                 </div>
-                                                <h6>Amazing trip</h6>
+                                                <h6>{review.reviewText}</h6>
                                             </div>
                                         </div>
                                     ))
@@ -157,7 +202,8 @@ const TripDetails = () => {
                 <Col lg='4'>
                     <Booking trip={trip} avgRating={avgRating} />
                 </Col>
-            </Row>
+                </Row>    
+            )};
         </Container>
         </section>
         <Newsletter />

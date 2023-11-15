@@ -101,3 +101,34 @@
     margin-block-start: 1rem;
     font-size: 500;
 }
+
+@media only screen and (max-width: 992px) {
+    .hero_content h1 {
+        font-size: 2.7rem;
+    }
+
+    .hero_img-box {
+        display: none;
+    }
+    .services_title,
+     .featured_trip-title,
+      .testimonial_title,
+      .experience_content h2{
+        font-size: 2rem;
+    }
+    .experience_img {
+        margin-top: 2rem;
+    }
+}
+
+@media only screen and (max-width: 576px) {
+    .hero_content h1{
+        font-size: 1.8rem;
+    }
+    .services_title,
+     .featured_trip-title,
+      .testimonial_title,
+      .experience_content h2 {
+        font-size: 1.5rem;
+    }
+}

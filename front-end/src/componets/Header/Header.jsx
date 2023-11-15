@@ -1,9 +1,11 @@
-import React, {useRef, useEffect} from "react";
+import React, {useRef, useEffect, useContext} from "react";
 import { Container, Row,Button}  from "reactstrap";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink, Link, useNavigate } from "react-router-dom";
 
 import logo from "../../assets/images/logo.png";
 import "./header.css";
+
+import { AuthContext } from './../../context/AuthContext';
 
 const nav_links = [
     {
@@ -23,6 +25,14 @@ const nav_links = [
 const Header = () => {
 
     const headerRef = useRef(null);
+    const menuRef = useRef(null);
+    const navigate = useNavigate();
+    const {user, dispatch } = useContext(AuthContext);
+
+    const logout = () =>{
+        dispatch({type:'LOGOUT'})
+        navigate('/')
+    }
 
     const stickyHeaderFunc = () => {
         window.addEventListener('scroll', () => {
@@ -38,7 +48,9 @@ const Header = () => {
         stickyHeaderFunc()
 
         return window.removeEventListener('scroll', stickyHeaderFunc)
-    })
+    });
+
+    const toggleMenu = () => menuRef.current.classList.toggle('show_menu')
 
     return <header className="header" ref={headerRef}>
         <Container>
@@ -52,7 +64,7 @@ const Header = () => {
                     {/* ======== logo end ======== */}
 
                     {/* ======== menu start ======== */}
-                    <div className="navigation">
+                    <div className="navigation" ref={menuRef} onClick={toggleMenu}>
                         <ul className="menu d-flex align-items-center gap-5">
                             {nav_links.map((item, index) => (
                                 <li className="nav_item" key={index}>
@@ -67,13 +79,23 @@ const Header = () => {
 
                     <div className="nav_right d-flex align-items-center gap-4 ">
                         <div className="nav_btn d-flex align-items-center gap-4 ">
-                            <Button className=" btn secondary__btn"><Link to=
+
+                        {
+                            user? ( 
+                            <>
+                            <h5 className="mb-0">{user.username}</h5>
+                            <button className="btn btn-dark" onClick={logout}>Logout</button>
+                            </>
+                             ) : ( 
+                             <>
+                                <Button className=" btn secondary__btn"><Link to=
                             '/Login'>Login</Link></Button>
                             <Button className="btn primary__btn"><Link to=
                             '/Register'>Register</Link></Button>
+                            </>
+                        )}     
                         </div>
-
-                        <span className="mobile_menu">
+                        <span className="mobile_menu" onClick={toggleMenu}>
                             <i class="ri-menu-line"></i>
                         </span>
                     </div>

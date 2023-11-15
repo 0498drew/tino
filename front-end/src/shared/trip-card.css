@@ -107,4 +107,21 @@
     font-size: 0.8rem;
 }
 
+@media only screen and (max-width: 992px) {
+    .trip_title{
+        font-size: 1rem;
+    }
+
+    .booking_btn a {
+        font-size: 0.8rem;
+    }
+    .booking_btn {
+        padding: 0.2rem 0.5rem !important;
+    }
+
+    .trip_location,
+     .trip_rating {
+        font-size: 0.8rem;
+     }
+} 
 
